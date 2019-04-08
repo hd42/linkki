@@ -16,12 +16,10 @@ package org.linkki.core.ui.components;
 import static java.util.Objects.requireNonNull;
 
 import org.apache.commons.lang3.StringUtils;
-import org.linkki.core.defaults.ui.element.ItemCaptionProvider;
-import org.linkki.core.defaults.ui.element.ItemCaptionProvider.DefaultCaptionProvider;
+import org.eclipse.jdt.annotation.Nullable;
+import org.linkki.core.ui.components.ItemCaptionProvider.DefaultCaptionProvider;
 
 import com.vaadin.ui.TwinColSelect;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 /**
  * Extends {@link TwinColSelect} and overrides various methods in order to implement a different
@@ -57,7 +55,7 @@ public class SubsetChooser extends TwinColSelect {
      * captions for items.
      */
     @Override
-    public void setItemCaption(@CheckForNull Object itemId, String caption) {
+    public void setItemCaption(@Nullable Object itemId, @Nullable String caption) {
         throw new UnsupportedOperationException("SubsetChooser does not support explicit item captions");
     }
 
@@ -67,7 +65,7 @@ public class SubsetChooser extends TwinColSelect {
      * used to get captions for items.
      */
     @Override
-    public void setItemCaptionMode(@CheckForNull ItemCaptionMode mode) {
+    public void setItemCaptionMode(@Nullable ItemCaptionMode mode) {
         throw new UnsupportedOperationException("SubsetChooser does not allow to specify the item caption mode");
     }
 
@@ -99,8 +97,8 @@ public class SubsetChooser extends TwinColSelect {
      * @return the item's caption
      */
     @Override
-    @CheckForNull
-    public String getItemCaption(@CheckForNull Object itemId) {
+    @Nullable
+    public String getItemCaption(@Nullable Object itemId) {
         if (itemId == null) {
             return StringUtils.EMPTY;
         }

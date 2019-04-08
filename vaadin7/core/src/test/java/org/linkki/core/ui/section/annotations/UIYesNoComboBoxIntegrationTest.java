@@ -20,18 +20,12 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
-import org.linkki.core.defaults.ui.element.ItemCaptionProvider.ToStringCaptionProvider;
-import org.linkki.core.defaults.ui.element.aspects.annotations.BindTooltip;
-import org.linkki.core.defaults.ui.element.aspects.types.EnabledType;
-import org.linkki.core.defaults.ui.element.aspects.types.RequiredType;
-import org.linkki.core.defaults.ui.element.aspects.types.TooltipType;
-import org.linkki.core.defaults.ui.element.aspects.types.VisibleType;
+import org.linkki.core.ui.components.ItemCaptionProvider.ToStringCaptionProvider;
 import org.linkki.core.ui.components.LinkkiComboBox;
+import org.linkki.core.ui.section.annotations.BindTooltip.TooltipType;
 import org.linkki.core.ui.section.annotations.UIYesNoComboBoxIntegrationTest.ComboBoxTestPmo;
 
 import com.vaadin.ui.ComboBox;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 public class UIYesNoComboBoxIntegrationTest extends FieldAnnotationIntegrationTest<LinkkiComboBox, ComboBoxTestPmo> {
 
@@ -125,12 +119,11 @@ public class UIYesNoComboBoxIntegrationTest extends FieldAnnotationIntegrationTe
         }
     }
 
-
+    @SuppressWarnings("null")
     protected static class ComboBoxTestModelObject {
-        @CheckForNull
+
         private Boolean value;
 
-        @CheckForNull
         public Boolean getValue() {
             return value;
         }
@@ -141,8 +134,7 @@ public class UIYesNoComboBoxIntegrationTest extends FieldAnnotationIntegrationTe
         }
 
         public boolean getStaticValue() {
-            Boolean b = getValue();
-            return b == null ? false : b;
+            return getValue() == null ? false : getValue();
         }
 
     }

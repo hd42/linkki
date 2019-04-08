@@ -18,19 +18,18 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Locale;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.Test;
 
 import com.vaadin.data.util.converter.Converter;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 public class IntegerFieldTest {
 
     @Test
     public void testConstructor() {
         IntegerField field = new IntegerField(Locale.GERMAN);
-        
-        @CheckForNull
+        @SuppressWarnings("null")
+        @Nullable
         Converter<String, Object> converter = field.getConverter();
         assertNotNull(converter);
         assertEquals(Integer.class, converter.getModelType());

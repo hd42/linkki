@@ -14,8 +14,8 @@
 
 package org.linkki.core.ui.table.hierarchy;
 
-import org.linkki.core.ui.element.annotation.UIIntegerField;
-import org.linkki.core.ui.element.annotation.UITextField;
+import org.linkki.core.ui.section.annotations.UIIntegerField;
+import org.linkki.core.ui.section.annotations.UITextField;
 
 public abstract class AbstractCodeRow {
 

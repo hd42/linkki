@@ -14,17 +14,17 @@
 
 package org.linkki.core.binding;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 public class TestModelObject {
 
     public static final String PROPERTY_MODEL_PROP = "modelProp";
 
-    @CheckForNull
+    @Nullable
     private String modelProp;
     private boolean modelPropVisible = true;
 
-    @CheckForNull
+    @Nullable
     public String getModelProp() {
         return modelProp;
     }

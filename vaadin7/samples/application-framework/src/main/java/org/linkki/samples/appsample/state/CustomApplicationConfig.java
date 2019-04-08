@@ -89,7 +89,7 @@ public class CustomApplicationConfig implements ApplicationConfig {
                 + "Bedingungen für Genehmigungen und Einschränkungen im Rahmen der\r\n"
                 + "Lizenz finden Sie in der Lizenz.";
 
-        return Locale.GERMAN.getLanguage().equals(locale.getLanguage()) ? licenseNoticeDE : licenseNoticeEN;
+        return locale.getLanguage() == Locale.GERMAN.getLanguage() ? licenseNoticeDE : licenseNoticeEN;
     }
 
 }

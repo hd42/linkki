@@ -24,15 +24,13 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.junit.Test;
 import org.linkki.core.binding.TestEnum;
-import org.linkki.core.pmo.ModelObject;
 import org.linkki.core.ui.components.SubsetChooser;
 
 import com.vaadin.server.PaintException;
 import com.vaadin.server.PaintTarget;
-
-import edu.umd.cs.findbugs.annotations.NonNull;
 
 public class UISubsetChooserTest {
 
@@ -136,7 +134,7 @@ public class UISubsetChooserTest {
         variables.put("selected", new String[] {});
         subsetChooser.changeVariables(null, variables);
 
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings({ "unchecked", "null" })
         @NonNull
         Set<TestEnum> selectedValuesResultEmpty = (Set<TestEnum>)subsetChooser.getValue();
         assertThat(selectedValuesResultEmpty, is(empty()));

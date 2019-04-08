@@ -24,10 +24,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.Test;
-import org.linkki.core.defaults.columnbased.pmo.HierarchicalRowPmo;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
+import org.linkki.core.ui.table.HierarchicalRowPmo;
 
 public class LinkkiInMemoryContainerTest {
 
@@ -307,7 +307,7 @@ public class LinkkiInMemoryContainerTest {
         }
 
         @Override
-        public boolean equals(@CheckForNull Object o) {
+        public boolean equals(@Nullable Object o) {
             if (this == o) {
                 return true;
             }
@@ -330,7 +330,7 @@ public class LinkkiInMemoryContainerTest {
 
         private final List<HierarchicalTestItem> children;
 
-        public HierarchicalTestItem(int meaningOfLife, HierarchicalTestItem... children) {
+        public HierarchicalTestItem(int meaningOfLife, @NonNull HierarchicalTestItem... children) {
             super(meaningOfLife);
             this.children = Arrays.asList(children);
         }

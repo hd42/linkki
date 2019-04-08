@@ -17,12 +17,10 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
 
-import org.linkki.core.defaults.ui.element.ItemCaptionProvider;
-import org.linkki.core.defaults.ui.element.ItemCaptionProvider.DefaultCaptionProvider;
+import org.eclipse.jdt.annotation.Nullable;
+import org.linkki.core.ui.components.ItemCaptionProvider.DefaultCaptionProvider;
 
 import com.vaadin.ui.ComboBox;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 /**
  * Extends {@link ComboBox} and overrides various methods in order to implement a different behavior for
@@ -53,7 +51,7 @@ public class LinkkiComboBox extends ComboBox {
      * captions for items.
      */
     @Override
-    public void setItemCaption(@CheckForNull Object itemId, String caption) {
+    public void setItemCaption(@Nullable Object itemId, @Nullable String caption) {
         throw new UnsupportedOperationException("LinkkiComboBox does not support explicit item captions");
     }
 
@@ -63,7 +61,7 @@ public class LinkkiComboBox extends ComboBox {
      * used to get captions for items.
      */
     @Override
-    public void setItemCaptionMode(@CheckForNull ItemCaptionMode mode) {
+    public void setItemCaptionMode(@Nullable ItemCaptionMode mode) {
         throw new UnsupportedOperationException("LinkkiComboBox does not allow to specify the item caption mode");
     }
 
@@ -95,8 +93,8 @@ public class LinkkiComboBox extends ComboBox {
      * @return the item's caption
      */
     @Override
-    @CheckForNull
-    public String getItemCaption(@CheckForNull Object itemId) {
+    @Nullable
+    public String getItemCaption(@Nullable Object itemId) {
         if (Objects.equals(itemId, getNullSelectionItemId())) {
             return itemCaptionProvider.getNullCaption();
         } else {

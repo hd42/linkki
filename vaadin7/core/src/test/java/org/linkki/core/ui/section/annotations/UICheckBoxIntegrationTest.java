@@ -18,17 +18,12 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.Test;
-import org.linkki.core.defaults.ui.element.aspects.annotations.BindTooltip;
-import org.linkki.core.defaults.ui.element.aspects.types.EnabledType;
-import org.linkki.core.defaults.ui.element.aspects.types.RequiredType;
-import org.linkki.core.defaults.ui.element.aspects.types.TooltipType;
-import org.linkki.core.defaults.ui.element.aspects.types.VisibleType;
+import org.linkki.core.ui.section.annotations.BindTooltip.TooltipType;
 import org.linkki.core.ui.section.annotations.UICheckBoxIntegrationTest.TestCheckboxPmo;
 
 import com.vaadin.ui.CheckBox;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 public class UICheckBoxIntegrationTest extends FieldAnnotationIntegrationTest<CheckBox, TestCheckboxPmo> {
 
@@ -169,18 +164,18 @@ public class UICheckBoxIntegrationTest extends FieldAnnotationIntegrationTest<Ch
 
     protected static class TestModelObjectWithObjectBoolean extends TestModelObject<Boolean> {
 
-        @CheckForNull
+        @Nullable
         private Boolean value = null;
 
         @Override
-
-        @CheckForNull
+        @SuppressWarnings("null")
+        @Nullable
         public Boolean getValue() {
             return value;
         }
 
         @Override
-        public void setValue(@CheckForNull Boolean value) {
+        public void setValue(@Nullable Boolean value) {
             this.value = value;
         }
     }

@@ -17,14 +17,14 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.function.Supplier;
 
+import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
 import org.linkki.util.Sequence;
 
 import com.vaadin.data.util.converter.Converter;
 import com.vaadin.data.util.converter.ConverterFactory;
 import com.vaadin.data.util.converter.DefaultConverterFactory;
 import com.vaadin.server.VaadinSession;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 /**
  * For this {@link ConverterFactory} to be used by Vaadin, it must be
@@ -42,7 +42,7 @@ public class LinkkiConverterFactory extends DefaultConverterFactory {
 
     private static final long serialVersionUID = 1L;
 
-    private Supplier<Sequence<Converter<?, ?>>> converterFinder;
+    private Supplier<@NonNull Sequence<@NonNull Converter<?, ?>>> converterFinder;
 
     public LinkkiConverterFactory() {
         this(() -> DEFAULT_JAVA_8_DATE_CONVERTERS);
@@ -53,12 +53,12 @@ public class LinkkiConverterFactory extends DefaultConverterFactory {
     }
 
     @Override
-    @CheckForNull
+    @Nullable
     protected <PRESENTATION, MODEL> Converter<PRESENTATION, MODEL> findConverter(
-            @CheckForNull Class<PRESENTATION> presentationType,
-            @CheckForNull Class<MODEL> modelType) {
+            @Nullable Class<PRESENTATION> presentationType,
+            @Nullable Class<MODEL> modelType) {
         @SuppressWarnings("unchecked")
-        @CheckForNull
+        @Nullable
         Converter<PRESENTATION, MODEL> converter = converterFinder.get().stream()
                 .filter(Converter.class::isInstance)
                 .map(Converter.class::cast)

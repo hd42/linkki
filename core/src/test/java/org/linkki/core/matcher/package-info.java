@@ -14,7 +14,5 @@
 /**
  * Matchers used in unit tests.
  */
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForFields(edu.umd.cs.findbugs.annotations.NonNull.class)
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForParameters(edu.umd.cs.findbugs.annotations.NonNull.class)
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForMethods(edu.umd.cs.findbugs.annotations.NonNull.class)
+@org.eclipse.jdt.annotation.NonNullByDefault
 package org.linkki.core.matcher;

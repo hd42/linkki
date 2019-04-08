@@ -18,9 +18,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import org.linkki.core.binding.descriptor.aspect.LinkkiAspectDefinition;
-import org.linkki.core.binding.descriptor.aspect.annotation.AspectDefinitionCreator;
-import org.linkki.core.binding.descriptor.aspect.annotation.LinkkiAspect;
+import org.eclipse.jdt.annotation.NonNull;
+import org.linkki.core.binding.aspect.AspectDefinitionCreator;
+import org.linkki.core.binding.aspect.LinkkiAspect;
+import org.linkki.core.binding.aspect.definition.LinkkiAspectDefinition;
 import org.linkki.doc.BindTooltip.BindTooltipAspectDefintionCreator;
 import org.linkki.doc.BindTooltipAspectDefinition.TooltipType;
 
@@ -40,7 +41,7 @@ public @interface BindTooltip {
     // end::BindTooltip[]
 
     // tag::BindTooltipLinkkiAspectCreator[]
-    class BindTooltipAspectDefintionCreator implements AspectDefinitionCreator<BindTooltip> {
+    class BindTooltipAspectDefintionCreator implements AspectDefinitionCreator<@NonNull BindTooltip> {
 
         @Override
         public LinkkiAspectDefinition create(BindTooltip annotation) {

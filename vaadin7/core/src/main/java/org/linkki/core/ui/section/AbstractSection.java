@@ -18,8 +18,9 @@ import static java.util.Objects.requireNonNull;
 import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.jdt.annotation.Nullable;
 import org.linkki.core.ButtonPmoBuilder;
-import org.linkki.core.defaults.style.LinkkiStyles;
+import org.linkki.core.ui.application.ApplicationStyles;
 import org.linkki.core.ui.util.ComponentFactory;
 import org.linkki.util.handler.Handler;
 
@@ -32,8 +33,6 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-
 /**
  * A section consists of a header displaying a caption and a body/content containing controls to view
  * and edit data. Optionally the section can be closed and opened. When the section is closed only the
@@ -43,9 +42,9 @@ public abstract class AbstractSection extends VerticalLayout {
 
     private static final long serialVersionUID = 1L;
 
-    @CheckForNull
+    @Nullable
     private HorizontalLayout header;
-    @CheckForNull
+    @Nullable
     private Button openCloseButton;
     private boolean open = true;
     private Optional<Button> editButton = Optional.empty();
@@ -93,12 +92,12 @@ public abstract class AbstractSection extends VerticalLayout {
             Optional<Button> editButton,
             Optional<Button> openCloseButton) {
         HorizontalLayout headerLayout = new HorizontalLayout();
-        headerLayout.addStyleName(LinkkiStyles.SECTION_CAPTION);
+        headerLayout.addStyleName(ApplicationStyles.SECTION_CAPTION);
         headerLayout.setSpacing(true);
 
         if (StringUtils.isNotEmpty(caption)) {
             Label captionLabel = new Label(caption);
-            captionLabel.addStyleName(LinkkiStyles.SECTION_CAPTION_TEXT);
+            captionLabel.addStyleName(ApplicationStyles.SECTION_CAPTION_TEXT);
             headerLayout.addComponent(captionLabel);
         }
 
@@ -106,7 +105,7 @@ public abstract class AbstractSection extends VerticalLayout {
         openCloseButton.ifPresent(b -> addHeaderButton(headerLayout, b));
 
         Label line = new Label("<hr/>", ContentMode.HTML);
-        line.addStyleName(LinkkiStyles.SECTION_CAPTION_LINE);
+        line.addStyleName(ApplicationStyles.SECTION_CAPTION_LINE);
         headerLayout.addComponent(line);
 
         return headerLayout;
@@ -114,7 +113,7 @@ public abstract class AbstractSection extends VerticalLayout {
 
     private static Button createOpenCloseButton(Handler toggleCloseOpen) {
         Button button = ComponentFactory.newButton(FontAwesome.ANGLE_DOWN, ButtonPmoBuilder.DEFAULT_STYLES);
-        button.addStyleName(LinkkiStyles.BUTTON_TEXT);
+        button.addStyleName(ApplicationStyles.BUTTON_TEXT);
         button.addClickListener(e -> toggleCloseOpen.apply());
         return button;
     }
@@ -124,12 +123,12 @@ public abstract class AbstractSection extends VerticalLayout {
      * AbstractOrderedLayout
      */
     private static void addHeaderButton(AbstractOrderedLayout header, Button button) {
-        button.addStyleName(LinkkiStyles.BUTTON_TEXT);
+        button.addStyleName(ApplicationStyles.BUTTON_TEXT);
         header.addComponent(button);
     }
 
     private static void addHeaderButton(AbstractOrderedLayout header, Button button, int index) {
-        button.addStyleName(LinkkiStyles.BUTTON_TEXT);
+        button.addStyleName(ApplicationStyles.BUTTON_TEXT);
         header.addComponent(button, index);
     }
 
@@ -156,6 +155,7 @@ public abstract class AbstractSection extends VerticalLayout {
         addBeforeCloseButton(button);
     }
 
+    @SuppressWarnings("null")
     private void addBeforeCloseButton(Button headerButton) {
         if (openCloseButton != null) {
             if (header != null) {

@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 /**
  * Key-value store that initializes its values lazily. Values will be initialized using the initializer
@@ -61,7 +61,7 @@ public class LazyInitializingMap<K, V> {
      *             function violates its contract and returns <code>null</code>.
      */
     public V get(K key) {
-        @CheckForNull
+        @Nullable
         V value = internalMap.computeIfAbsent(key, initializer);
         if (value == null) {
             throw new NullPointerException("Initializer must not create a null value");
@@ -73,7 +73,7 @@ public class LazyInitializingMap<K, V> {
      * Returns the value the given key maps to. Returns <code>null</code> if the key does not map to a
      * value.
      */
-    @CheckForNull
+    @Nullable
     public V getIfPresent(K key) {
         return internalMap.get(key);
     }
@@ -91,7 +91,7 @@ public class LazyInitializingMap<K, V> {
      * 
      * @see Map#remove(Object)
      */
-    @CheckForNull
+    @Nullable
     public V remove(K key) {
         return internalMap.remove(key);
     }

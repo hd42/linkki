@@ -15,7 +15,5 @@
  * Dispatchers are used in the data binding framework to access properties. They represent different
  * ways to get to a property defined by name.
  */
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForFields(edu.umd.cs.findbugs.annotations.NonNull.class)
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForParameters(edu.umd.cs.findbugs.annotations.NonNull.class)
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForMethods(edu.umd.cs.findbugs.annotations.NonNull.class)
+@org.eclipse.jdt.annotation.NonNullByDefault
 package org.linkki.core.binding.dispatcher;

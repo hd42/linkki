@@ -13,7 +13,7 @@
  */
 package org.linkki.util.validation;
 
-import edu.umd.cs.findbugs.annotations.NonNull;
+import org.eclipse.jdt.annotation.NonNull;
 
 /** Interface for validation message markers. */
 @FunctionalInterface

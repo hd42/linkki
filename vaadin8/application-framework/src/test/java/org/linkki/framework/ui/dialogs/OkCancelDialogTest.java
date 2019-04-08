@@ -25,6 +25,7 @@ import static org.mockito.Mockito.verify;
 
 import java.util.stream.Stream;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
@@ -33,9 +34,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.linkki.core.binding.validation.ValidationDisplayState;
 import org.linkki.core.binding.validation.ValidationService;
-import org.linkki.core.binding.validation.message.Message;
-import org.linkki.core.binding.validation.message.MessageList;
-import org.linkki.core.binding.validation.message.Severity;
+import org.linkki.core.message.Message;
+import org.linkki.core.message.MessageList;
+import org.linkki.core.message.Severity;
 import org.linkki.framework.ui.application.LinkkiUi;
 import org.linkki.framework.ui.application.TestApplicationConfig;
 import org.linkki.framework.ui.dialogs.OkCancelDialog.ButtonOption;
@@ -50,11 +51,9 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-import edu.umd.cs.findbugs.annotations.NonNull;
-
 public class OkCancelDialogTest {
 
-    
+    @SuppressWarnings("null")
     private LinkkiUi linkkiUi;
 
     @Before
@@ -274,7 +273,7 @@ public class OkCancelDialogTest {
                 description.appendText("an OkCancelDialog displaying a message");
             }
 
-            
+            @SuppressWarnings("null")
             @Override
             protected boolean matchesSafely(OkCancelDialog dialog) {
                 @NonNull
@@ -297,7 +296,7 @@ public class OkCancelDialogTest {
 
             @Override
             protected boolean matchesSafely(OkCancelDialog dialog) {
-                
+                @SuppressWarnings("null")
                 @NonNull
                 VerticalLayout layout = (VerticalLayout)dialog.getContent();
                 VerticalLayout nestedLayout = (VerticalLayout)layout.getComponent(0);

@@ -19,16 +19,15 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 import org.apache.commons.lang3.StringUtils;
-import org.linkki.core.binding.manager.UiUpdateObserver;
-import org.linkki.framework.ui.LinkkiApplicationStyles;
+import org.eclipse.jdt.annotation.Nullable;
+import org.linkki.core.binding.UiUpdateObserver;
+import org.linkki.framework.ui.LinkkiStyles;
 import org.linkki.util.LazyReference;
 import org.linkki.util.handler.Handler;
 
 import com.vaadin.server.Resource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Component;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 /**
  * Wrapper class for a component that is displayed in a {@link SidebarLayout}.
@@ -116,7 +115,7 @@ public class SidebarSheet {
      *            selected. May be {@code null}.
      */
     public SidebarSheet(Resource icon, String name, Supplier<Component> contentSupplier,
-            @CheckForNull UiUpdateObserver uiUpdateObserver) {
+            @Nullable UiUpdateObserver uiUpdateObserver) {
         this.button = new Button("", requireNonNull(icon, "icon must not be null")); // $NON-NLS-1
         this.contentSupplier = new LazyReference<>(requireNonNull(contentSupplier, "content must not be null"));
         this.name = requireNonNull(name, "tooltip must not be null");
@@ -143,7 +142,7 @@ public class SidebarSheet {
      */
     protected void select() {
         getContent().setVisible(true);
-        getButton().addStyleName(LinkkiApplicationStyles.SIDEBAR_SELECTED);
+        getButton().addStyleName(LinkkiStyles.SIDEBAR_SELECTED);
         uiUpdateObserver.ifPresent(UiUpdateObserver::uiUpdated);
     }
 
@@ -151,7 +150,7 @@ public class SidebarSheet {
      * Should only be called by {@link SidebarLayout}.
      */
     protected void unselect() {
-        getButton().removeStyleName(LinkkiApplicationStyles.SIDEBAR_SELECTED);
+        getButton().removeStyleName(LinkkiStyles.SIDEBAR_SELECTED);
         getContent().setVisible(false);
     }
 

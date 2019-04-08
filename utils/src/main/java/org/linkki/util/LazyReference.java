@@ -18,12 +18,12 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.function.Supplier;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 public class LazyReference<T> {
 
     private Supplier<T> supplier;
-    @CheckForNull
+    @Nullable
     private T reference;
 
     public LazyReference(Supplier<T> supplier) {

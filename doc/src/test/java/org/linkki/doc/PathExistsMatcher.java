@@ -2,11 +2,10 @@ package org.linkki.doc;
 
 import java.nio.file.Path;
 
+import org.eclipse.jdt.annotation.NonNull;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-
-import edu.umd.cs.findbugs.annotations.NonNull;
 
 class PathExistsMatcher extends TypeSafeMatcher<Path> {
 

@@ -25,11 +25,11 @@ import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
-import org.linkki.core.binding.descriptor.aspect.LinkkiAspectDefinition;
-import org.linkki.core.binding.dispatcher.reflection.accessor.PropertyAccessor;
-import org.linkki.core.binding.dispatcher.reflection.accessor.PropertyAccessorCache;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
+import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
+import org.linkki.core.binding.aspect.definition.LinkkiAspectDefinition;
+import org.linkki.core.binding.dispatcher.accessor.PropertyAccessor;
+import org.linkki.core.binding.dispatcher.accessor.PropertyAccessorCache;
 
 /**
  * This class stores all {@link ElementDescriptor ElementDescriptors} of a PMO specified at the same
@@ -47,7 +47,7 @@ public class PropertyElementDescriptors {
 
     private static final String COMPONENT_PROPERTY_SUFFIX = "ComponentType";
 
-    private final Map<Class<? extends Annotation>, ElementDescriptor> descriptors;
+    private final Map<@NonNull Class<? extends Annotation>, @NonNull ElementDescriptor> descriptors;
 
     private final String pmoPropertyName;
 
@@ -80,7 +80,7 @@ public class PropertyElementDescriptors {
                     .iterator().next();
         } else {
             Class<? extends Annotation> initialAnnotation = getInitialAnnotationClassFromPmo(pmo);
-            @CheckForNull
+            @Nullable
             ElementDescriptor descriptor = descriptors.get(initialAnnotation);
             if (descriptor == null) {
                 throw new IllegalStateException(String.format("No descriptor found for annotation @%s for property %s",
@@ -125,7 +125,7 @@ public class PropertyElementDescriptors {
 
     @SuppressWarnings("unchecked")
     private Class<? extends Annotation> getInitialAnnotationClassFromPmo(Object pmo) {
-        PropertyAccessor<Object, ?> propertyAccessor = (PropertyAccessor<Object, ?>)PropertyAccessorCache
+        PropertyAccessor<@NonNull Object, @NonNull ?> propertyAccessor = (PropertyAccessor<Object, ?>)PropertyAccessorCache
                 .get(pmo.getClass(), getComponentTypeProperty(getPmoPropertyName()));
         return (Class<? extends Annotation>)propertyAccessor.getPropertyValue(pmo);
     }

@@ -15,7 +15,7 @@ package org.linkki.core.ui.converters;
 
 import java.text.DecimalFormat;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
+import org.eclipse.jdt.annotation.Nullable;
 
 /**
  * Converts {@link Double} to {@link String} while taking a given format into account.
@@ -31,7 +31,7 @@ public class FormattedDoubleToStringConverter extends FormattedNumberToStringCon
     }
 
     @Override
-    @CheckForNull
+    @Nullable
     protected Double getNullValue() {
         return null;
     }

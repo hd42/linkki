@@ -22,7 +22,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.WeakHashMap;
 
-import org.linkki.core.defaults.columnbased.pmo.HierarchicalRowPmo;
+import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
+import org.linkki.core.ui.table.HierarchicalRowPmo;
 
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
@@ -30,15 +32,13 @@ import com.vaadin.data.Property;
 import com.vaadin.data.util.AbstractInMemoryContainer;
 import com.vaadin.event.ItemClickEvent.ItemClickListener;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-
 /**
  * An in-memory container which doesn't do any reflection magic. This container simply stores the
  * Objects.
  * 
  * @param <T> the type of items contained in this container
  */
-public class LinkkiInMemoryContainer<T> extends AbstractInMemoryContainer<T, Object, Item>
+public class LinkkiInMemoryContainer<@NonNull T> extends AbstractInMemoryContainer<T, Object, Item>
         implements Container.Hierarchical {
 
     private static final long serialVersionUID = -1708252890035638419L;
@@ -100,19 +100,19 @@ public class LinkkiInMemoryContainer<T> extends AbstractInMemoryContainer<T, Obj
      * not be possible to add any {@link ItemClickListener} to the table.
      */
     @Override
-    protected Item getUnfilteredItem(@CheckForNull Object itemId) {
+    protected Item getUnfilteredItem(@Nullable Object itemId) {
         return new DummyItemImplementation();
     }
 
     @Override
-    @CheckForNull
-    public Property<T> getContainerProperty(@CheckForNull Object itemId, Object propertyId) {
+    @Nullable
+    public Property<T> getContainerProperty(@Nullable Object itemId, @Nullable Object propertyId) {
         throw new UnsupportedOperationException("getContainerProperty is not supported");
     }
 
     @Override
-    @CheckForNull
-    public Class<?> getType(@CheckForNull Object propertyId) {
+    @Nullable
+    public Class<?> getType(@Nullable Object propertyId) {
         throw new UnsupportedOperationException("getType is not supported");
     }
 
@@ -147,7 +147,7 @@ public class LinkkiInMemoryContainer<T> extends AbstractInMemoryContainer<T, Obj
                 .map(HierarchicalRowPmo.class::cast);
     }
 
-    @CheckForNull
+    @Nullable
     @Override
     public T getParent(Object itemId) {
         return parents.get(itemId);
@@ -176,7 +176,7 @@ public class LinkkiInMemoryContainer<T> extends AbstractInMemoryContainer<T, Obj
     }
 
     @Override
-    public boolean setParent(Object itemId, Object newParentId)
+    public boolean setParent(Object itemId, @Nullable Object newParentId)
             throws UnsupportedOperationException {
         return false;
     }

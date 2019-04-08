@@ -14,7 +14,5 @@
 /**
  * {@link com.vaadin.data.util.converter.Converter Converters} used by Linkki.
  */
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForFields(edu.umd.cs.findbugs.annotations.NonNull.class)
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForParameters(edu.umd.cs.findbugs.annotations.NonNull.class)
-@edu.umd.cs.findbugs.annotations.DefaultAnnotationForMethods(edu.umd.cs.findbugs.annotations.NonNull.class)
+@org.eclipse.jdt.annotation.NonNullByDefault
 package org.linkki.core.ui.converters;

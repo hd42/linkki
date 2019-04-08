@@ -13,13 +13,11 @@
  */
 package org.linkki.core.ui.section.annotations;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.Test;
-import org.linkki.core.pmo.ModelObject;
 
 import com.vaadin.data.Buffered;
 import com.vaadin.ui.TextField;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 
 public class UiIntegerFieldTest {
 
@@ -38,10 +36,10 @@ public class UiIntegerFieldTest {
 
     protected static class TestModelObjectWithObjectInteger {
 
-        @CheckForNull
+        @Nullable
         private Integer value = null;
 
-        @CheckForNull
+        @Nullable
         public Integer getIntegerValue() {
             return value;
         }

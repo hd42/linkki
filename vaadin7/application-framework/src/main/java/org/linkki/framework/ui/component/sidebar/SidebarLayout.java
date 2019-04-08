@@ -20,13 +20,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
-import org.linkki.framework.ui.LinkkiApplicationStyles;
+import org.eclipse.jdt.annotation.NonNull;
+import org.eclipse.jdt.annotation.Nullable;
+import org.linkki.framework.ui.LinkkiStyles;
 
 import com.vaadin.ui.Component;
 import com.vaadin.ui.CssLayout;
-
-import edu.umd.cs.findbugs.annotations.CheckForNull;
-import edu.umd.cs.findbugs.annotations.NonNull;
 
 /**
  * Component consisting of a sidebar and a content area.
@@ -35,10 +34,10 @@ import edu.umd.cs.findbugs.annotations.NonNull;
  *           {@link #addSheet(SidebarSheet)} method. The first added sheet is selected by default, but
  *           another can be chosen via {@link #select(SidebarSheet)}.
  *           <p>
- *           The {@link SidebarLayout} can be styled with the {@link LinkkiApplicationStyles#SIDEBAR_LAYOUT},
- *           {@link LinkkiApplicationStyles#SIDEBAR} and {@link LinkkiApplicationStyles#SIDEBAR_CONTENT} style classes.
+ *           The {@link SidebarLayout} can be styled with the {@link LinkkiStyles#SIDEBAR_LAYOUT},
+ *           {@link LinkkiStyles#SIDEBAR} and {@link LinkkiStyles#SIDEBAR_CONTENT} style classes.
  *           Selected buttons in the sidebar are additionally styled with
- *           {@link LinkkiApplicationStyles#SIDEBAR_SELECTED}.
+ *           {@link LinkkiStyles#SIDEBAR_SELECTED}.
  */
 public class SidebarLayout extends CssLayout {
 
@@ -48,8 +47,8 @@ public class SidebarLayout extends CssLayout {
 
     private final CssLayout contentArea;
 
-    private final List<SidebarSheet> sidebarSheets = new ArrayList<>();
-    @CheckForNull
+    private final List<@NonNull SidebarSheet> sidebarSheets = new ArrayList<>();
+    @Nullable
     private SidebarSheet selected;
 
     public SidebarLayout() {
@@ -60,19 +59,19 @@ public class SidebarLayout extends CssLayout {
         setSizeFull();
         contentArea.setSizeFull();
 
-        setStyleName(LinkkiApplicationStyles.SIDEBAR_LAYOUT);
-        sidebar.setStyleName(LinkkiApplicationStyles.SIDEBAR);
-        contentArea.setStyleName(LinkkiApplicationStyles.SIDEBAR_CONTENT);
+        setStyleName(LinkkiStyles.SIDEBAR_LAYOUT);
+        sidebar.setStyleName(LinkkiStyles.SIDEBAR);
+        contentArea.setStyleName(LinkkiStyles.SIDEBAR_CONTENT);
 
         addComponent(sidebar);
         addComponent(contentArea);
     }
 
-    public void addSheets(Stream<SidebarSheet> sheets) {
+    public void addSheets(Stream<@NonNull SidebarSheet> sheets) {
         sheets.forEach(this::addSheet);
     }
 
-    public void addSheets(Iterable<SidebarSheet> sheets) {
+    public void addSheets(Iterable<@NonNull SidebarSheet> sheets) {
         sheets.forEach(this::addSheet);
     }
 

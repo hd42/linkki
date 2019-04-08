@@ -17,7 +17,6 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Optional;
 
-import org.linkki.core.defaults.columnbased.pmo.ContainerPmo;
 import org.linkki.core.ui.section.AbstractSection;
 import org.linkki.core.ui.section.PmoBasedSectionFactory;
 

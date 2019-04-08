@@ -16,6 +16,7 @@ package org.linkki.framework.ui.application;
 
 import static java.util.Objects.requireNonNull;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.linkki.framework.state.ApplicationConfig;
 import org.linkki.framework.ui.dialogs.DefaultErrorDialog;
 import org.linkki.framework.ui.dialogs.DialogErrorHandler;
@@ -30,7 +31,6 @@ import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.UI;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
@@ -49,12 +49,16 @@ public class LinkkiUi extends UI {
      * Default constructor for dependency injection. Make sure to call
      * {@link #configure(ApplicationConfig)} before the UI is initialized.
      */
-    @SuppressFBWarnings(value = "NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR", justification = "applicationConfig/Layout will be non-null once configure was called")
+    // applicationConfig/Layout will be non-null once configure was called
+    @SuppressWarnings("null")
+    @SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
     protected LinkkiUi() {
         super();
     }
 
-    @SuppressFBWarnings(value = "NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR", justification = "applicationConfig/Layout will be non-null once configure was called")
+    // applicationConfig/Layout are set to non-null values in configure
+    @SuppressWarnings("null")
+    @SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
     public LinkkiUi(ApplicationConfig applicationConfig) {
         configure(applicationConfig);
     }
@@ -68,6 +72,7 @@ public class LinkkiUi extends UI {
         setNavigator(config.createApplicationNavigator(this, applicationLayout));
     }
 
+    @SuppressWarnings("null")
     @Override
     public ApplicationNavigator getNavigator() {
         return (ApplicationNavigator)super.getNavigator();
@@ -135,7 +140,7 @@ public class LinkkiUi extends UI {
     }
 
     @Override
-    protected void refresh(@CheckForNull VaadinRequest request) {
+    protected void refresh(@Nullable VaadinRequest request) {
         super.refresh(request);
         getNavigator().refreshCurrentView();
     }
@@ -148,9 +153,9 @@ public class LinkkiUi extends UI {
         return applicationLayout;
     }
 
-    @SuppressFBWarnings(value = "RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE", justification = "when called from the constructor before configure")
+    @SuppressWarnings("null")
     @Override
-    public void setContent(@CheckForNull Component content) {
+    public void setContent(@Nullable Component content) {
         // if applicationLayout == null, configure was not yet called and this is just the call from the
         // super constructor; Otherwise only an ApplicationLayout is accepted
         if (applicationLayout != null && !(content instanceof ApplicationLayout)) {
@@ -165,6 +170,7 @@ public class LinkkiUi extends UI {
      * 
      * @return {@link UI#getCurrent()}
      */
+    @SuppressWarnings("null")
     public static LinkkiUi getCurrent() {
         return (LinkkiUi)UI.getCurrent();
     }

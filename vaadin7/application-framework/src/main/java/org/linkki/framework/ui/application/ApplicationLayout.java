@@ -13,6 +13,8 @@
  */
 package org.linkki.framework.ui.application;
 
+import org.eclipse.jdt.annotation.Nullable;
+
 import com.vaadin.navigator.Navigator.EmptyView;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewDisplay;
@@ -33,7 +35,7 @@ public class ApplicationLayout extends VerticalLayout implements ViewDisplay {
      * Creates a new {@link ApplicationLayout} with the given {@link ApplicationHeader header} and
      * (optional) {@link ApplicationFooter footer}.
      */
-    public ApplicationLayout(ApplicationHeader header, ApplicationFooter footer) {
+    public ApplicationLayout(ApplicationHeader header, @Nullable ApplicationFooter footer) {
         setMargin(false);
         setSizeFull();
 

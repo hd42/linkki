@@ -20,6 +20,7 @@ import static org.junit.Assert.assertSame;
 
 import java.util.function.Function;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.Test;
 
 public class LazyInitializingMapTest {
@@ -34,7 +35,7 @@ public class LazyInitializingMapTest {
         assertNull(value);
     }
 
-    
+    @SuppressWarnings("null")
     @Test(expected = NullPointerException.class)
     public void testGet_null() {
         LazyInitializingMap<String, Object> lazyInitializingMap = new LazyInitializingMap<>(initializer);
@@ -44,7 +45,7 @@ public class LazyInitializingMapTest {
 
     @Test(expected = NullPointerException.class)
     public void testGet_initializerFunctionReturnsNull() {
-        LazyInitializingMap<String, Object> lazyInitializingMap = new LazyInitializingMap<>(
+        LazyInitializingMap<String, @Nullable Object> lazyInitializingMap = new LazyInitializingMap<>(
                 (String key) -> null);
 
         lazyInitializingMap.get("string");

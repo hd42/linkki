@@ -20,18 +20,16 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.linkki.core.binding.manager.BindingManager;
-import org.linkki.core.binding.manager.DefaultBindingManager;
 import org.linkki.core.binding.validation.ValidationService;
-import org.linkki.core.defaults.nls.TestUiComponent;
-import org.linkki.core.defaults.ui.element.aspects.annotations.BindTooltip;
-import org.linkki.core.defaults.ui.element.aspects.types.EnabledType;
-import org.linkki.core.defaults.ui.element.aspects.types.TooltipType;
-import org.linkki.core.pmo.ModelObject;
+import org.linkki.core.ui.TestUiComponent;
+import org.linkki.core.ui.section.annotations.BindTooltip;
+import org.linkki.core.ui.section.annotations.BindTooltip.TooltipType;
+import org.linkki.core.ui.section.annotations.EnabledType;
+import org.linkki.core.ui.section.annotations.ModelObject;
 
 public class BinderTest {
 
-    
+    @SuppressWarnings("null")
     private BindingContext bindingContext;
 
     @Before
@@ -85,7 +83,7 @@ public class BinderTest {
         assertThat(pmo.getModel().getClickCount(), is(2));
     }
 
-    
+    @SuppressWarnings("null")
     @Test(expected = NullPointerException.class)
     public void testSetupBindings_ThrowsExceptionForNullField() {
         TestView view = new TestView();
@@ -97,7 +95,7 @@ public class BinderTest {
         binder.setupBindings(bindingContext);
     }
 
-    
+    @SuppressWarnings("null")
     @Test(expected = NullPointerException.class)
     public void testSetupBindings_ThrowsExceptionForMethodReturningNull() {
         TestView view = new TestView();
