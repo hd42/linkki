@@ -21,7 +21,7 @@
 
     <properties>
         <joda-time.version>2.4</joda-time.version>
-        <vaadin.version>7.7.16</vaadin.version>
+        <vaadin.version>8.7.2</vaadin.version>
     </properties>
 
     <dependencyManagement>
