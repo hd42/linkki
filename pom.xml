@@ -42,7 +42,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <git.user>${user.name}</git.user>
         <junit.version>4.12</junit.version>
-        <mockito.version>2.24.0</mockito.version>
+        <mockito.version>2.27.0</mockito.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <doc.user>${user.name}</doc.user>
         <spotbugs.version>3.1.11</spotbugs.version>
