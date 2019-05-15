@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <asciidoctor.maven.plugin.version>1.5.7.1</asciidoctor.maven.plugin.version>
+        <asciidoctor.maven.plugin.version>1.6.0</asciidoctor.maven.plugin.version>
         <asciidoctorj.pdf.version>1.5.0-alpha.17</asciidoctorj.pdf.version>
         <asciidoctorj.version>1.5.2<!-- Newer version collides with asciidoctor-maven-plugin --></asciidoctorj.version>
         <jbake.version>2.5.1<!-- Newer version collides with our hacks --></jbake.version>
