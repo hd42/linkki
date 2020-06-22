@@ -477,7 +477,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <version>4.0.1</version>
                 <!-- do not update as long as we need to be compatible to 3.1 -->
                 <scope>provided</scope>
             </dependency>
