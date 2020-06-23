@@ -42,7 +42,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <git.user>${user.name}</git.user>
-        <junit.version>5.6.0</junit.version>
+        <junit.version>5.6.2</junit.version>
         <mockito.version>3.2.4</mockito.version>
         <commons-lang3.version>3.9</commons-lang3.version>
         <commons-io.version>2.6</commons-io.version>
