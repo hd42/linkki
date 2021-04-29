@@ -1,0 +1,24 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: com.vaadin:vaadin-client
+    versions:
+    - ">= 8.a, < 9"
+  - dependency-name: com.vaadin:vaadin-client-compiled
+    versions:
+    - ">= 8.a, < 9"
+  - dependency-name: com.vaadin:vaadin-server
+    versions:
+    - ">= 8.a, < 9"
+  - dependency-name: com.vaadin:vaadin-themes
+    versions:
+    - ">= 8.a, < 9"
+  - dependency-name: org.apache.maven.wagon:wagon-ssh
+    versions:
+    - 3.4.2
