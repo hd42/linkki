@@ -24,11 +24,7 @@
     </modules>
 
     <properties>
-        <vaadin.version>
-        <!-- tag::vaadin8[] -->
-        8.10.4
-        <!-- end::vaadin8[] -->
-        </vaadin.version>
+        <vaadin.version>7.7.26</vaadin.version>
     </properties>
 
     <dependencyManagement>

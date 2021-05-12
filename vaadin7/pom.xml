@@ -24,11 +24,7 @@
         2.4
         <!-- end::joda[] -->
         </joda-time.version>
-        <vaadin.version>
-        <!-- tag::vaadin7[] -->
-        7.7.17
-        <!-- end::vaadin7[] -->
-        </vaadin.version>
+        <vaadin.version>7.7.26</vaadin.version>
     </properties>
 
     <dependencyManagement>
